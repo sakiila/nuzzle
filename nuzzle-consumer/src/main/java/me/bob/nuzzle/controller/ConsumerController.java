@@ -1,6 +1,6 @@
-package me.bob.controller;
+package me.bob.nuzzle.controller;
 
-import me.bob.api.UserService;
+import me.bob.nuzzle.api.UserService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

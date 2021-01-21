@@ -20,3 +20,5 @@ s
 Cnuzzle-provider/src/main/java/me/bob/NuzzleProviderApplication.java,c\8\c8619fbae5707a0f8b32a1c57c02ea943eb988dc
 d
 4nuzzle-api/src/main/java/me/bob/api/UserService.java,c\9\c9577e1f2ae26b2d2ee4f825863929a4e74b39f5
+w
+Gnuzzle-consumer/src/main/java/me/bob/controller/ConsumerController.java,c\1\c1051a99769e26bcb46951b5a572d516d81954be

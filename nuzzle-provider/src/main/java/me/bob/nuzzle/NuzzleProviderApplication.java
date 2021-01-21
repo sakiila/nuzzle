@@ -1,4 +1,4 @@
-package me.bob;
+package me.bob.nuzzle;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

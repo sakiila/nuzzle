@@ -1,4 +1,4 @@
-package me.bob.api;
+package me.bob.nuzzle.api;
 
 public interface UserService {
 
