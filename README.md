@@ -1,5 +1,5 @@
 <p align="center" >
-    <a href="https://github.com/sakiila/nuzzle"><img src="https://raw.githubusercontent.com/sakiila/nuzzle/main/nuzzle.png" width="45%"></a>
+    <a href="https://github.com/sakiila/nuzzle"><img src="https://raw.githubusercontent.com/sakiila/nuzzle/main/nuzzle.png" width="50%"></a>
 </p>
 
 # nuzzle
