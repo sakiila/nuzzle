@@ -22,3 +22,5 @@ k
 ;nuzzle-api/src/main/java/me/bob/nuzzle/api/UserService.java,0\d\0de872b5ee29686cab8a0c2ae1caac7c927d20d1
 z
 Jnuzzle-consumer/src/main/java/me/bob/nuzzle/NuzzleConsumerApplication.java,2\6\26bc9d9c7fa0972dcafb2397b485ada34bc6a8c3
+v
+Fnuzzle-core/src/main/java/me/bob/nuzzle/annotation/EnableProvider.java,1\4\142caf0c7fef6ac0405ff60b1ef970a277317f0c
