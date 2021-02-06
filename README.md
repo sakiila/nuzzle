@@ -3,15 +3,21 @@
 </p>
 
 # nuzzle
+
 A simple rpc framework.
 
+一个简单的 RPC 框架，用于学习与研究。
+
 ### nuzzle-core
+
 框架核心部分
 
 ### nuzzle-api
+
 接口定义部分
 
 ### nuzzle-consumer
+
 客户端
 
 ### nuzzle-provider
