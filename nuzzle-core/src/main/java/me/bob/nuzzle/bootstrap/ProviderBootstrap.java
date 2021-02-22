@@ -27,9 +27,11 @@ public class ProviderBootstrap {
      * 构建生产者
      */
     private void buildProvider() {
+        // 从应用上下文获取 bean
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
         for (String beanName : beanDefinitionNames) {
             Object bean = applicationContext.getBean(beanName);
+            // 拿到以 EnableProvider 注解的类
             EnableProvider provider = AnnotationUtils.findAnnotation(bean.getClass(), EnableProvider.class);
             if (provider == null) {
                 continue;
@@ -38,6 +40,7 @@ public class ProviderBootstrap {
             if (classes == null || classes.length == 0) {
                 continue;
             }
+            // 创建生产者
             Arrays.stream(classes).forEach(c -> createProvider(c, bean));
         }
     }
