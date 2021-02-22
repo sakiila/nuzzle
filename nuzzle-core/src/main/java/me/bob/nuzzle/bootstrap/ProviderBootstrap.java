@@ -23,6 +23,9 @@ public class ProviderBootstrap {
         initRpcServer();
     }
 
+    /**
+     * 构建生产者
+     */
     private void buildProvider() {
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
         for (String beanName : beanDefinitionNames) {

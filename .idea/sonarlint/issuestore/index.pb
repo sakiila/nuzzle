@@ -24,3 +24,5 @@ z
 Jnuzzle-consumer/src/main/java/me/bob/nuzzle/NuzzleConsumerApplication.java,2\6\26bc9d9c7fa0972dcafb2397b485ada34bc6a8c3
 v
 Fnuzzle-core/src/main/java/me/bob/nuzzle/annotation/EnableProvider.java,1\4\142caf0c7fef6ac0405ff60b1ef970a277317f0c
+x
+Hnuzzle-core/src/main/java/me/bob/nuzzle/bootstrap/ProviderBootstrap.java,8\6\86326a89b8bb7688e59899cd3a12ed45edd37e99
