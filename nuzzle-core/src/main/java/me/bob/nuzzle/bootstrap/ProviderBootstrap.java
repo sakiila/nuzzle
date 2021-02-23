@@ -1,5 +1,9 @@
 package me.bob.nuzzle.bootstrap;
 
+import io.netty.bootstrap.ServerBootstrap;
+import io.netty.channel.EventLoopGroup;
+import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.handler.codec.LengthFieldPrepender;
 import me.bob.nuzzle.annotation.EnableProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -16,6 +20,11 @@ public class ProviderBootstrap {
 
     @Autowired
     private ApplicationContext applicationContext;
+
+    EventLoopGroup bossEventLoop = new NioEventLoopGroup();
+
+    EventLoopGroup workerEventLoop = new NioEventLoopGroup();
+
 
     @PostConstruct
     public void start() {
@@ -59,6 +68,11 @@ public class ProviderBootstrap {
      * 初始化服务端
      */
     private void initRpcServer() {
+        // 使用 Netty 构造服务端
+        ServerBootstrap nettyBoot = new ServerBootstrap();
 
+        final LengthFieldPrepender lengthFieldPrepender = new LengthFieldPrepender(4, true);
+
+        nettyBoot.group(bossEventLoop, workerEventLoop);
     }
 }
