@@ -1,9 +1,15 @@
 package me.bob.nuzzle.bootstrap;
 
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.LengthFieldPrepender;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 import me.bob.nuzzle.annotation.EnableProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -73,6 +79,15 @@ public class ProviderBootstrap {
 
         final LengthFieldPrepender lengthFieldPrepender = new LengthFieldPrepender(4, true);
 
-        nettyBoot.group(bossEventLoop, workerEventLoop);
+        nettyBoot.group(bossEventLoop, workerEventLoop)
+                .channel(NioServerSocketChannel.class)
+                .option(ChannelOption.SO_BACKLOG, 100)
+                .handler(new LoggingHandler(LogLevel.INFO))
+                .childHandler(new ChannelInitializer<Channel>() {
+                    @Override
+                    protected void initChannel(Channel channel) throws Exception {
+
+                    }
+                });
     }
 }
