@@ -4,6 +4,7 @@ import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
+import io.netty.channel.ChannelPipeline;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -31,6 +32,7 @@ public class ProviderBootstrap {
 
     EventLoopGroup workerEventLoop = new NioEventLoopGroup();
 
+    private final int listenPort = 6300;
 
     @PostConstruct
     public void start() {
@@ -86,8 +88,15 @@ public class ProviderBootstrap {
                 .childHandler(new ChannelInitializer<Channel>() {
                     @Override
                     protected void initChannel(Channel channel) throws Exception {
-
+                        ChannelPipeline pipeline = channel.pipeline();
+                        pipeline.addLast(lengthFieldPrepender);
                     }
                 });
+
+        try {
+            nettyBoot.bind(listenPort).sync();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
