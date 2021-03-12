@@ -6,7 +6,7 @@
 
 A simple rpc framework.
 
-一个简单的 RPC 框架，用于学习与研究。
+一个 RPC 框架，用于学习与研究。
 
 ### nuzzle-core
 
