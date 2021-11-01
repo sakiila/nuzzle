@@ -1,11 +1,7 @@
 package me.bob.nuzzle.bootstrap;
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.ChannelPipeline;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.LengthFieldPrepender;
@@ -31,8 +27,6 @@ public class ProviderBootstrap {
     EventLoopGroup bossEventLoop = new NioEventLoopGroup();
 
     EventLoopGroup workerEventLoop = new NioEventLoopGroup();
-
-    private final int listenPort = 6300;
 
     @PostConstruct
     public void start() {
@@ -94,6 +88,7 @@ public class ProviderBootstrap {
                 });
 
         try {
+            int listenPort = 6300;
             nettyBoot.bind(listenPort).sync();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
