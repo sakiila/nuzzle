@@ -15,5 +15,18 @@
     <properties>
         <java.version>1.8</java.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>me.bob</groupId>
+            <artifactId>nuzzle-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>me.bob</groupId>
+            <artifactId>nuzzle-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
     
 </project>

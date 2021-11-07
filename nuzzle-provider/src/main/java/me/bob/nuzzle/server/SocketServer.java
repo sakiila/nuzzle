@@ -12,9 +12,9 @@ import java.net.Socket;
 
 @Service
 @Slf4j
-public class ProviderServer {
+public class SocketServer {
 
-    @PostConstruct
+//    @PostConstruct
     public void init() {
         try (ServerSocket server = new ServerSocket(8099)) {
             Socket socket;
