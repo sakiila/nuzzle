@@ -39,7 +39,7 @@ public class NettyClient {
                         }
                     });
 
-//             f = bootstrap.connect("127.0.0.1", 8099).sync();
+//            f = bootstrap.connect("127.0.0.1", 8099).sync();
 //            f.channel().closeFuture().sync();
         } finally {
 //            workerGroup.shutdownGracefully();

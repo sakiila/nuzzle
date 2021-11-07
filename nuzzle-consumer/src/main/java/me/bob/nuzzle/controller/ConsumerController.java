@@ -1,16 +1,11 @@
 package me.bob.nuzzle.controller;
 
-import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelFuture;
-import io.netty.util.Attribute;
-import io.netty.util.AttributeKey;
 import lombok.extern.slf4j.Slf4j;
 import me.bob.nuzzle.api.UserService;
 import me.bob.nuzzle.client.NettyClient;
-import me.bob.nuzzle.data.RpcRequest;
 import me.bob.nuzzle.data.RpcResponse;
-import org.springframework.beans.factory.annotation.Autowired;
+import me.bob.nuzzle.impl.UserServiceImpl;
+import me.bob.nuzzle.proxy.NuzzleProxyFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,8 +17,6 @@ import java.net.Socket;
 @RestController
 @Slf4j
 public class ConsumerController {
-
-    private UserService userService;
 
     @RequestMapping("/hello")
     public String sayHi(String name) {
@@ -42,33 +35,41 @@ public class ConsumerController {
         return "Good";
     }
     
-    @RequestMapping("/hello2")
-    public RpcResponse sayHi2(String name) throws InterruptedException {
+//    @RequestMapping("/hello2")
+//    public RpcResponse sayHi2(String name) throws InterruptedException {
+//
+//        final Bootstrap bootstrap = NettyClient.bootstrap;
+//        final ChannelFuture f = bootstrap.connect("127.0.0.1", 8099).sync();
+//        Channel channel = f.channel();
+//        log.info("send message starting");
+//        
+//        if (channel != null) {
+//            final RpcRequest rpcRequest = new RpcRequest();
+//            rpcRequest.setMethodName("method");
+//            channel.writeAndFlush(rpcRequest)
+//                    .addListener(future -> {
+//                        if (future.isSuccess()) {
+//                            log.info("client send message");
+//                        } else {
+//                            log.error("send failed", future.cause());
+//                        }
+//                    });
+//
+//            channel.closeFuture().sync();
+//
+//            final AttributeKey<RpcResponse> key = AttributeKey.valueOf("rpcResponse");
+//            return channel.attr(key).get();
+//        }
+//
+//        return null;
+//    }
 
-        final Bootstrap bootstrap = NettyClient.bootstrap;
-        final ChannelFuture f = bootstrap.connect("127.0.0.1", 8099).sync();
-        Channel channel = f.channel();
-        log.info("send message starting");
-        
-        if (channel != null) {
-            final RpcRequest rpcRequest = new RpcRequest();
-            rpcRequest.setInterfaceName("Inter").setMethodName("method");
-            channel.writeAndFlush(rpcRequest)
-                    .addListener(future -> {
-                        if (future.isSuccess()) {
-                            log.info("client send message");
-                        } else {
-                            log.error("send failed", future.cause());
-                        }
-                    });
-            
-            channel.closeFuture().sync();
+    @RequestMapping("/hello3")
+    public String sayHi3(String name) throws InterruptedException {
 
-            final AttributeKey<RpcResponse> key = AttributeKey.valueOf("rpcResponse");
-            return channel.attr(key).get();
-        }
-        
-        return null;
+        UserService userService = (UserService) NuzzleProxyFactory.getProxy(UserServiceImpl.class, NettyClient.bootstrap);
+
+        return userService.sayHi("hello3");
     }
 
 }
