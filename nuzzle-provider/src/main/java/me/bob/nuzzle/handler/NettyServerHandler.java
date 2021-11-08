@@ -9,8 +9,10 @@ import lombok.extern.slf4j.Slf4j;
 import me.bob.nuzzle.data.RpcRequest;
 import me.bob.nuzzle.data.RpcResponse;
 import me.bob.nuzzle.impl.UserServiceImpl;
+import me.bob.nuzzle.registry.NuzzleServiceRegistry;
 
 import java.lang.reflect.Method;
+import java.net.InetSocketAddress;
 
 @Slf4j
 public class NettyServerHandler extends ChannelInboundHandlerAdapter {

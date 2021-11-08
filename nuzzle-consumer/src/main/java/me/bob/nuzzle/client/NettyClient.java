@@ -11,16 +11,26 @@ import lombok.extern.slf4j.Slf4j;
 import me.bob.nuzzle.data.RpcRequest;
 import me.bob.nuzzle.data.RpcResponse;
 import me.bob.nuzzle.handler.NettyClientHandler;
+import me.bob.nuzzle.registry.CuratorUtils;
+import me.bob.nuzzle.registry.NuzzleServiceRegistry;
 import me.bob.nuzzle.serializer.KryoSerializer;
 import me.bob.nuzzle.serializer.NettyDecode;
 import me.bob.nuzzle.serializer.NettyEncoder;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
+import java.net.InetSocketAddress;
+
+@Service
 @Slf4j
 public class NettyClient {
 
     public static Bootstrap bootstrap;
 
-    static {
+    @PostConstruct
+    public void init() {
+        register();
+        
         EventLoopGroup workerGroup = new NioEventLoopGroup();
 
         final KryoSerializer kryoSerializer = new KryoSerializer();
@@ -44,5 +54,10 @@ public class NettyClient {
         } finally {
 //            workerGroup.shutdownGracefully();
         }
+    }
+
+    public void register(){
+        // 使用注册中心
+        CuratorUtils.initZkClient();
     }
 }

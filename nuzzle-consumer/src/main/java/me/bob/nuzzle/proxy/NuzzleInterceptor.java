@@ -8,10 +8,12 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import me.bob.nuzzle.data.RpcRequest;
 import me.bob.nuzzle.data.RpcResponse;
+import me.bob.nuzzle.registry.NuzzleServiceDiscovery;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.Method;
+import java.net.InetSocketAddress;
 
 @AllArgsConstructor
 @Slf4j
@@ -25,7 +27,10 @@ public class NuzzleInterceptor implements MethodInterceptor {
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         log.info("start invoke " + method.getName());
 
-        final ChannelFuture f = bootstrap.connect("127.0.0.1", 8099).sync();
+        // 使用注册中心获取远程地址
+        final InetSocketAddress inetSocketAddress = NuzzleServiceDiscovery.lookupService(clazz.getSimpleName());
+
+        final ChannelFuture f = bootstrap.connect(inetSocketAddress.getAddress(), inetSocketAddress.getPort()).sync();
         Channel channel = f.channel();
         log.info("send message starting");
 
