@@ -4,9 +4,11 @@
 
 # nuzzle
 
-A simple rpc framework.
+A Simple RPC Project.
 
-一个 RPC 框架，用于学习与研究。
+一个简洁的 RPC 项目，用于学习与研究。
+
+使用到的技术：Socket、Netty、CGlib、Kryo、ZooKeeper 等。
 
 ### nuzzle-core
 
