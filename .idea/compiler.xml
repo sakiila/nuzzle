@@ -13,13 +13,6 @@
         <module name="nuzzle-provider" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="nuzzle" target="1.8" />
-      <module name="nuzzle-api" target="1.8" />
-      <module name="nuzzle-consumer" target="1.8" />
-      <module name="nuzzle-core" target="1.8" />
-      <module name="nuzzle-provider" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
