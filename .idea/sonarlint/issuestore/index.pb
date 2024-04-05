@@ -1,15 +1,15 @@
 
 7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 G
 nuzzle-consumer/pom.xml,9\1\91d116c5a0197fa2f4cbb2ae57786a81fc84205d
 C
-nuzzle-core/pom.xml,2\9\29d1d4eaa7c8fea07e7761db7b2491913798cb08
+nuzzle-core/pom.xml,2/9/29d1d4eaa7c8fea07e7761db7b2491913798cb08
 G
-nuzzle-provider/pom.xml,f\2\f2cf98d98de8a6e077557e737d1573853b3b8d42
+nuzzle-provider/pom.xml,f/2/f2cf98d98de8a6e077557e737d1573853b3b8d42
 :
 
-.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 v
 Fnuzzle-core/src/main/java/me/bob/nuzzle/serializer/KryoSerializer.java,2\5\25cafaf2baf5fe57ed0a54b5394e485e5e6663c6
 t
@@ -21,13 +21,13 @@ Cnuzzle-provider/src/main/java/me/bob/nuzzle/server/NettyServer.java,7\e\7e6190
 p
 @nuzzle-api/src/main/java/me/bob/nuzzle/impl/UserServiceImpl.java,2\a\2ae45b0d48f658da4d11bda67fbc7c8decc2dd45
 I
-nuzzle-api/nuzzle-api.iml,1\e\1e5d9fc0c6b8dd4e112d79785be9ac2839b1941c
+nuzzle-api/nuzzle-api.iml,1/e/1e5d9fc0c6b8dd4e112d79785be9ac2839b1941c
 S
-#nuzzle-consumer/nuzzle-consumer.iml,9\b\9b3924e91e47033dd94d8cdfc46b971c40a8f7a7
+#nuzzle-consumer/nuzzle-consumer.iml,9/b/9b3924e91e47033dd94d8cdfc46b971c40a8f7a7
 K
-nuzzle-core/nuzzle-core.iml,a\1\a19aa3d0879edb65f9ff59ae27d8744fddc6771a
+nuzzle-core/nuzzle-core.iml,a/1/a19aa3d0879edb65f9ff59ae27d8744fddc6771a
 S
-#nuzzle-provider/nuzzle-provider.iml,0\7\072c60a96078990c7db2aa1457616a974bba063a
+#nuzzle-provider/nuzzle-provider.iml,0/7/072c60a96078990c7db2aa1457616a974bba063a
 B
 nuzzle-api/pom.xml,0\e\0e91d75e14537e2dfa12d17fa1bbe05af6af2588
 m
@@ -52,3 +52,10 @@ w
 G.idea/sonarlint/issuestore/2/5/25cafaf2baf5fe57ed0a54b5394e485e5e6663c6,2\d\2da01d9c327f2239b26c8ff43c8a274e9d1f9424
 w
 G.idea/sonarlint/issuestore/0/7/072c60a96078990c7db2aa1457616a974bba063a,f\b\fb33a813c5c228a39f109dfc6c3961314c1ff6f2
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+S
+#.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
+:
+
+nuzzle.iml,f/1/f1eb487d9bed498094f16432ffaaf08e1ba60f22
